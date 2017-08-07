@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    class Computer : Player
+    public class Computer : Player
     {
 
         public Computer(string Name)
@@ -14,8 +14,13 @@ namespace RockPaperScissors
             this.Name = Name;
             
         }
-        Random random = new Random();
-        int randomNumber = Random.next(1, 6);
+        public override void GetName()
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(0, 5);
+            string[] choices = new string[] {"Rock", "Paper", "Scissors", "Lizard", "Spock"};
+            Choice = choices[randomNumber];
+        }
        
     }
 }

@@ -11,5 +11,21 @@ namespace RockPaperScissors
         public string Name;
         public string Choice;
         public int Score;
+        public int RoundScore;
+
+        public Player()
+        {
+
+        }
+       
+            }
+        public void IncrementScore()
+        {
+            RoundScore++;
+        }
+    public virtual void GetName()
+        {
+            Console.WriteLine("Choose Rock, Paper, Scissors, Lizards, or Spock,");
+        }
     }
 }

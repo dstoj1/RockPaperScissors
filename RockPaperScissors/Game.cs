@@ -6,31 +6,51 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    class Game
+    public class Game
     {
-        
+        Player PlayerOne;
+        Player PlayerTwo;
+
+        public void DisplayRules()
+        {
+            Console.WriteLine("Best 2 out of 3 wins the game!");
+        }
         public void GetPlayers()
         {
             Console.WriteLine("How many players?");
             int numberOfPlayers = int.Parse(Console.ReadLine());
+            PlayerOne.CompareChoices(PlayerTwo.Choice);
+            if (numberOfPlayers == 1)
+            {
+                string Name = "";
+                PlayerOne = new Human(Name);
+                PlayerTwo = new Computer(Name);
+                PlayerOne.Name = GetPlayerName();
+                PlayerTwo.Name = GetPlayerName();
+            }
+            else if (numberOfPlayers == 2)
+            {
+                string Name = "";
+                PlayerOne = new Human(Name);
+                PlayerTwo = new Human(Name);
+                PlayerOne.Name = GetPlayerName();
+                PlayerTwo.Name = GetPlayerName();
+            }
+            else
+            {
+                Console.WriteLine("Please choose 1 or 2 Players");
+                GetPlayers();
 
-            //if 1, then instantiate Human and Computer
-            //if 2, then instantiate Human and Human
+
+            }
         }
-
-        public Game()
+        public void CompareChoices(string OtherPlayerChoice)
         {
-
-        }
-
-        public void CompareChoices()
-        {
-            
-            switch (//Human.Choice)
+            switch (PlayerOne.Choice)
             {
                 case "Rock":
 
-                    switch (//Computer.Choice or Human.Choice)
+                    switch (OtherPlayerChoice)
                     {
                         case "Rock":
                             Console.WriteLine("Tie!");
@@ -40,17 +60,112 @@ namespace RockPaperScissors
                             break;
                         case "Scissors":
                             Console.WriteLine("You Lose");
-                            break:
-                        case "Lizard";
+                            break;
+                        case "Lizard":
                             Console.WriteLine("You Lose");
-                            break:
+                            break;
                         case "Spock":
                             Console.WriteLine("You Win");
                             break;
-                        default;
+                        default:
                             break;
-                        
                     }
+                    break;
+                case "Paper":
+
+                    switch (OtherPlayerChoice)
+                    {
+                        case "Rock":
+                            Console.WriteLine($"{PlayerTwo} Wins!");
+                            break;
+                        case "Paper":
+                            Console.WriteLine($"{PlayerTwo} ties with {PlayerTwo}");
+                            break;
+                        case "Scissors":
+                            Console.WriteLine($"{PlayerOne} Wins");
+                            break;
+                        case "Lizard":
+                            Console.WriteLine($"{PlayerTwo} Wins");
+                            break;
+                        case "Spock":
+                            Console.WriteLine($"{PlayerTwo} Wins");
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+
+                case "Scissors":
+
+                    switch (OtherPlayerChoice)
+                    {
+                        case "Rock":
+                            Console.WriteLine($"{PlayerTwo} Wins!");
+                            break;
+                        case "Paper":
+                            Console.WriteLine($"{PlayerOne}");
+                            break;
+                        case "Scissors":
+                            Console.WriteLine($"{PlayerOne} ties with {PlayerTwo}");
+                            break;
+                        case "Lizard":
+                            Console.WriteLine($"{PlayerOne} Wins");
+                            break;
+                        case "Spock":
+                            Console.WriteLine($"{PlayerTwo} Wins");
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+
+                case "Lizard":
+
+                    switch (OtherPlayerChoice)
+                    {
+                        case "Rock":
+                            Console.WriteLine($"{PlayerTwo} Wins!");
+                            break;
+                        case "Paper":
+                            Console.WriteLine($"{PlayerOne} Wins!");
+                            break;
+                        case "Scissors":
+                            Console.WriteLine($"{PlayerTwo} Wins!");
+                            break;
+                        case "Lizard":
+                            Console.WriteLine($"{PlayerTwo} ties with {PlayerOne}");
+                            break;
+                        case "Spock":
+                            Console.WriteLine($"{PlayerOne} Wins");
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+
+                case "Spock":
+
+                    switch (OtherPlayerChoice)
+                    {
+                        case "Rock":
+                            Console.WriteLine($"{PlayerOne} Wins!");
+                            break;
+                        case "Paper":
+                            Console.WriteLine($"{PlayerOne} Wins!");
+                            break;
+                        case "Scissors":
+                            Console.WriteLine($"{PlayerOne} Wins");
+                            break;
+                        case "Lizard":
+                            Console.WriteLine($"{PlayerTwo} Wins");
+                            break;
+                        case "Spock":
+                            Console.WriteLine($"{PlayerOne} ties with {PlayerTwo}");
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
             }
         }
     }
