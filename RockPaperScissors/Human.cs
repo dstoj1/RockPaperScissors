@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    class PlayerOne
+    class Human : Player
     {
+        public Human(string Name)
+        {
+            this.Name = Name;
+        }
+
+        //method for a human to make a choice
+        public void MakeChoice()
+        {
+            Console.WriteLine();
+            Choice = Console.ReadLine();
+        }
     }
 }

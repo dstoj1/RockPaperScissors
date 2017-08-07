@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    class PlayerTwo
+    class Computer : Player
     {
+
+        public Computer(string Name)
+        {
+            this.Name = Name;
+            
+        }
+        Random random = new Random();
+        int randomNumber = Random.next(1, 6);
+       
     }
 }

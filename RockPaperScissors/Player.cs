@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    class Player
+    public class Player
     {
+        public string Name;
+        public string Choice;
+        public int Score;
     }
 }
