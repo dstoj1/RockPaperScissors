@@ -10,6 +10,7 @@ namespace RockPaperScissors
     {
         Player PlayerOne;
         Player PlayerTwo;
+        string UserInput;
 
         public void DisplayRules()
         {
@@ -19,7 +20,7 @@ namespace RockPaperScissors
         {
             Console.WriteLine("How many players?");
             int numberOfPlayers = int.Parse(Console.ReadLine());
-            PlayerOne.CompareChoices(PlayerTwo.Choice);
+            CompareChoices(PlayerTwo.Choice);
             if (numberOfPlayers == 1)
             {
                 string Name = "";
@@ -40,8 +41,23 @@ namespace RockPaperScissors
             {
                 Console.WriteLine("Please choose 1 or 2 Players");
                 GetPlayers();
-
-
+            }
+        } 
+        public string GetPlayerName()
+        {
+            Console.WriteLine("Please enter name");
+            string PlayerName = Console.ReadLine();
+            return PlayerName;
+        }
+        public void FindWinner()
+        {
+            if(PlayerOne.RoundScore == 2)
+            {
+                Console.WriteLine($"{PlayerOne.Name} wins the game!");
+            }
+            else if(PlayerTwo.RoundScore == 2)
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the game!");
             }
         }
         public void CompareChoices(string OtherPlayerChoice)
@@ -166,6 +182,40 @@ namespace RockPaperScissors
                             break;
                     }
                     break;
+            }
+        }
+        public void Winner()
+        {
+            if(PlayerOne.RoundScore == 2)
+            {
+                Console.WriteLine($"{PlayerOne} Wins!");
+            }
+            else if(PlayerTwo.RoundScore == 2)
+            {
+                Console.WriteLine($"{PlayerTwo} Wins!");
+            }
+        }
+        public void PlayAgain()
+        {
+            Console.WriteLine("Do you want to play again?");
+            UserInput = Console.ReadLine();
+            if(UserInput.ToLower() == "yes")
+            {
+                RunGame();
+            }
+            else 
+            {
+                Console.WriteLine("Thank You for playing");
+                Environment.Exit(0);
+            }
+        }
+        public void RunGame()
+        {
+            DisplayRules();
+            GetPlayers();
+          while(PlayerOne.RoundScore < 2 && PlayerTwo.RoundScore < 2)
+            {
+
             }
         }
     }
