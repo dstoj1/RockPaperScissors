@@ -21,9 +21,10 @@ namespace RockPaperScissors
         {
             RoundScore++;
         }
-    public virtual void GetName()
+        public virtual void MakeChoice()
         {
-            Console.WriteLine("Choose Rock, Paper, Scissors, Lizards, or Spock,");
+            Console.WriteLine($"{Name} Please Pick, Rock, Paper, Scissors, Lizard, Spock");
+            Choice = Console.ReadLine().ToLower(); ;
         }
     }
 }

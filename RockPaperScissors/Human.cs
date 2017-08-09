@@ -12,10 +12,10 @@ namespace RockPaperScissors
         {
             this.Name = Name;
         }
-        public void MakeChoice()
-        {
-            Console.WriteLine("Pick Rock, Paper, Scissors, Lizard, Spock");
-            Choice = Console.ReadLine();
-        }
+        //public void MakeChoice()
+        //{
+        //    Console.WriteLine("Pick Rock, Paper, Scissors, Lizard, Spock");
+        //    Choice = Console.ReadLine();
+        //}
     }
 }

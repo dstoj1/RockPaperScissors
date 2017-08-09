@@ -20,14 +20,13 @@ namespace RockPaperScissors
         {
             Console.WriteLine("How many players?");
             int numberOfPlayers = int.Parse(Console.ReadLine());
-            CompareChoices(PlayerTwo.Choice);
+            // CompareChoices(PlayerTwo.Choice);
             if (numberOfPlayers == 1)
             {
                 string Name = "";
                 PlayerOne = new Human(Name);
-                PlayerTwo = new Computer(Name);
+                PlayerTwo = new Computer("Computer");
                 PlayerOne.Name = GetPlayerName();
-                PlayerTwo.Name = GetPlayerName();
             }
             else if (numberOfPlayers == 2)
             {
@@ -49,134 +48,143 @@ namespace RockPaperScissors
             string PlayerName = Console.ReadLine();
             return PlayerName;
         }
-        public void FindWinner()
-        {
-            if(PlayerOne.RoundScore == 2)
-            {
-                Console.WriteLine($"{PlayerOne.Name} wins the game!");
-            }
-            else if(PlayerTwo.RoundScore == 2)
-            {
-                Console.WriteLine($"{PlayerTwo.Name} wins the game!");
-            }
-        }
         public void CompareChoices(string OtherPlayerChoice)
         {
             switch (PlayerOne.Choice)
             {
-                case "Rock":
+                case "rock":
 
                     switch (OtherPlayerChoice)
                     {
-                        case "Rock":
-                            Console.WriteLine("Tie!");
+                        case "rock":
+                            Console.WriteLine($"{PlayerOne.Name} ties with {PlayerTwo.Name}");
                             break;
-                        case "Paper":
-                            Console.WriteLine("You Win");
+                        case "paper":
+                            Console.WriteLine($"{PlayerOne.Name} Wins!");
+                            PlayerOne.IncrementScore();
                             break;
-                        case "Scissors":
-                            Console.WriteLine("You Lose");
+                        case "scissors":
+                            Console.WriteLine($"{PlayerTwo.Name} Wins");
+                            PlayerTwo.IncrementScore();
                             break;
-                        case "Lizard":
-                            Console.WriteLine("You Lose");
+                        case "lizard":
+                            Console.WriteLine($"{PlayerTwo.Name} Wins");
+                            PlayerTwo.IncrementScore();
                             break;
-                        case "Spock":
-                            Console.WriteLine("You Win");
+                        case "spock":
+                            Console.WriteLine($"{PlayerOne.Name} Wins!");
+                            PlayerOne.IncrementScore();
                             break;
                         default:
                             break;
                     }
                     break;
-                case "Paper":
+                case "paper":
 
                     switch (OtherPlayerChoice)
                     {
-                        case "Rock":
-                            Console.WriteLine($"{PlayerTwo} Wins!");
+                        case "rock":
+                            Console.WriteLine($"{PlayerOne.Name} Wins!");
+                            PlayerOne.IncrementScore();
                             break;
-                        case "Paper":
-                            Console.WriteLine($"{PlayerTwo} ties with {PlayerTwo}");
+                        case "paper":
+                            Console.WriteLine($"{PlayerOne.Name} ties with {PlayerTwo.Name}");
                             break;
-                        case "Scissors":
-                            Console.WriteLine($"{PlayerOne} Wins");
+                        case "scissors":
+                            Console.WriteLine($"{PlayerOne.Name} Wins");
+                            PlayerOne.IncrementScore();
                             break;
-                        case "Lizard":
-                            Console.WriteLine($"{PlayerTwo} Wins");
+                        case "lizard":
+                            Console.WriteLine($"{PlayerTwo.Name} Wins");
+                            PlayerTwo.IncrementScore();
                             break;
-                        case "Spock":
-                            Console.WriteLine($"{PlayerTwo} Wins");
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-
-                case "Scissors":
-
-                    switch (OtherPlayerChoice)
-                    {
-                        case "Rock":
-                            Console.WriteLine($"{PlayerTwo} Wins!");
-                            break;
-                        case "Paper":
-                            Console.WriteLine($"{PlayerOne}");
-                            break;
-                        case "Scissors":
-                            Console.WriteLine($"{PlayerOne} ties with {PlayerTwo}");
-                            break;
-                        case "Lizard":
-                            Console.WriteLine($"{PlayerOne} Wins");
-                            break;
-                        case "Spock":
-                            Console.WriteLine($"{PlayerTwo} Wins");
+                        case "spock":
+                            Console.WriteLine($"{PlayerTwo.Name} Wins");
+                            PlayerTwo.IncrementScore();
                             break;
                         default:
                             break;
                     }
                     break;
 
-                case "Lizard":
+                case "scissors":
 
                     switch (OtherPlayerChoice)
                     {
-                        case "Rock":
-                            Console.WriteLine($"{PlayerTwo} Wins!");
+                        case "rock":
+                            Console.WriteLine($"{PlayerTwo.Name} Wins!");
+                            PlayerTwo.IncrementScore();
                             break;
-                        case "Paper":
-                            Console.WriteLine($"{PlayerOne} Wins!");
+                        case "paper":
+                            Console.WriteLine($"{PlayerOne.Name}");
+                            PlayerOne.IncrementScore();
                             break;
-                        case "Scissors":
-                            Console.WriteLine($"{PlayerTwo} Wins!");
+                        case "scissors":
+                            Console.WriteLine($"{PlayerOne.Name} ties with {PlayerTwo.Name}");
                             break;
-                        case "Lizard":
-                            Console.WriteLine($"{PlayerTwo} ties with {PlayerOne}");
+                        case "lizard":
+                            Console.WriteLine($"{PlayerOne.Name} Wins");
+                            PlayerOne.IncrementScore();
                             break;
-                        case "Spock":
-                            Console.WriteLine($"{PlayerOne} Wins");
+                        case "spock":
+                            Console.WriteLine($"{PlayerTwo.Name} Wins");
+                            PlayerTwo.IncrementScore();
                             break;
                         default:
                             break;
                     }
                     break;
 
-                case "Spock":
+                case "lizard":
 
                     switch (OtherPlayerChoice)
                     {
-                        case "Rock":
-                            Console.WriteLine($"{PlayerOne} Wins!");
+                        case "rock":
+                            Console.WriteLine($"{PlayerTwo.Name} Wins!");
+                            PlayerTwo.IncrementScore();
                             break;
-                        case "Paper":
-                            Console.WriteLine($"{PlayerOne} Wins!");
+                        case "paper":
+                            Console.WriteLine($"{PlayerOne.Name} Wins!");
+                            PlayerOne.IncrementScore();
                             break;
-                        case "Scissors":
-                            Console.WriteLine($"{PlayerOne} Wins");
+                        case "scissors":
+                            Console.WriteLine($"{PlayerTwo.Name} Wins!");
+                            PlayerTwo.IncrementScore();
                             break;
-                        case "Lizard":
-                            Console.WriteLine($"{PlayerTwo} Wins");
+                        case "lizard":
+                            Console.WriteLine($"{PlayerTwo.Name} ties with {PlayerOne.Name}");
                             break;
-                        case "Spock":
-                            Console.WriteLine($"{PlayerOne} ties with {PlayerTwo}");
+                        case "spock":
+                            Console.WriteLine($"{PlayerOne.Name} Wins");
+                            PlayerOne.IncrementScore();
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+
+                case "spock":
+
+                    switch (OtherPlayerChoice)
+                    {
+                        case "rock":
+                            Console.WriteLine($"{PlayerTwo.Name} Wins!");
+                            PlayerTwo.IncrementScore();
+                            break;
+                        case "paper":
+                            Console.WriteLine($"{PlayerOne.Name} Wins!");
+                            PlayerOne.IncrementScore();
+                            break;
+                        case "scissors":
+                            Console.WriteLine($"{PlayerOne.Name} Wins");
+                            PlayerOne.IncrementScore();
+                            break;
+                        case "lizard":
+                            Console.WriteLine($"{PlayerTwo.Name} Wins");
+                            PlayerTwo.IncrementScore();
+                            break;
+                        case "spock":
+                            Console.WriteLine($"{PlayerOne.Name} ties with {PlayerTwo.Name}");
                             break;
                         default:
                             break;
@@ -188,11 +196,11 @@ namespace RockPaperScissors
         {
             if(PlayerOne.RoundScore == 2)
             {
-                Console.WriteLine($"{PlayerOne} Wins!");
+                Console.WriteLine($"{PlayerOne.Name} Wins the GAME!!!!!");
             }
             else if(PlayerTwo.RoundScore == 2)
             {
-                Console.WriteLine($"{PlayerTwo} Wins!");
+                Console.WriteLine($"{PlayerTwo.Name} Wins the GAME!!!!");
             }
         }
         public void PlayAgain()
@@ -206,7 +214,7 @@ namespace RockPaperScissors
             else 
             {
                 Console.WriteLine("Thank You for playing");
-                Environment.Exit(0);
+                Console.ReadLine();
             }
         }
         public void RunGame()
@@ -215,8 +223,13 @@ namespace RockPaperScissors
             GetPlayers();
           while(PlayerOne.RoundScore < 2 && PlayerTwo.RoundScore < 2)
             {
-
+                PlayerOne.MakeChoice();
+                PlayerTwo.MakeChoice();
+                CompareChoices(PlayerTwo.Choice);
+                Winner();
             }
+            PlayAgain();
+            Environment.Exit(0);
         }
     }
 }

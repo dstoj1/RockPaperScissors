@@ -14,12 +14,12 @@ namespace RockPaperScissors
             this.Name = Name;
             
         }
-        public override void GetName()
+        public override void MakeChoice()
         {
             Random random = new Random();
             int randomNumber = random.Next(0, 5);
             string[] choices = new string[] {"Rock", "Paper", "Scissors", "Lizard", "Spock"};
-            Choice = choices[randomNumber];
+            Choice = choices[randomNumber].ToLower(); 
         }
        
     }
