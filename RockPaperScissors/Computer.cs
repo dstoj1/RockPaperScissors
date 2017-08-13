@@ -11,7 +11,7 @@ namespace RockPaperScissors
 
         public Computer(string Name)
         {
-            this.Name = Name;
+           // this.Name = Name;
             
         }
         public override void MakeChoice()

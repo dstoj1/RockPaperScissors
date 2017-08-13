@@ -23,8 +23,8 @@ namespace RockPaperScissors
         }
         public virtual void MakeChoice()
         {
-            Console.WriteLine($"{Name} Please Pick, Rock, Paper, Scissors, Lizard, Spock");
-            Choice = Console.ReadLine().ToLower(); ;
+            Console.WriteLine($"{Name.ToUpper()} Please Pick, Rock, Paper, Scissors, Lizard, Spock");
+            Choice = Console.ReadLine().ToLower(); 
         }
     }
 }

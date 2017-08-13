@@ -10,7 +10,7 @@ namespace RockPaperScissors
     {
         public Human(string Name)
         {
-            this.Name = Name;
+           // this.Name = Name;
         }
         //public void MakeChoice()
         //{
